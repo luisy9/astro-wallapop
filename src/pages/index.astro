@@ -1,16 +1,27 @@
 ---
-
+import MainLayouts from '../layouts/MainLayouts.astro';
+import Card from '../components/Card.astro';
+import { data } from '../utils/data';
 ---
 
-<html lang="en">
-	<head>
-		<meta charset="utf-8" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<meta name="viewport" content="width=device-width" />
-		<meta name="generator" content={Astro.generator} />
-		<title>Astro</title>
-	</head>
-	<body>
-		<h1>Astro</h1>
-	</body>
+<html lang='en'>
+  <head>
+    <meta charset='utf-8' />
+    <link rel='icon' type='image/svg+xml' href='/favicon.svg' />
+    <meta name='viewport' content='width=device-width' />
+    <meta name='generator' content={Astro.generator} />
+    <title>Wallapop Astro</title>
+  </head>
+  <MainLayouts>
+	<div class="m-12">
+		<div class='grid lg:grid-cols-4 md:grid-cols-3 sm:grid-cols-1 lg:gap-10 md:gap-7 border-solid'>
+			{
+			  data.map((tag) => (
+				<Card nombre={tag.Nombre} precio={tag.Precio} imagen={tag.imagen} />
+			  ))
+			}
+		  </div>
+	</div>
+   
+  </MainLayouts>
 </html>
